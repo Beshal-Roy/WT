@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop Application Review</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+<body>
+    <h2>Review Drop Application</h2>
+
+    <!-- Display application information -->
+    <div>
+        <p><strong>Student Name:</strong> John Doe</p>
+        <p><strong>Application Reason:</strong> Personal reasons</p>
+    </div>
+
+    <!-- Form for the teacher to accept/reject the application -->
+    <form action="/app/controllers/ApplicationController.php" method="POST" id="application-form">
+        <label for="status">Application Status:</label><br>
+        <input type="radio" id="accept" name="status" value="accept" required>
+        <label for="accept">Accept</label><br>
+        <input type="radio" id="reject" name="status" value="reject" required>
+        <label for="reject">Reject</label><br><br>
+
+        <!-- Comment section if the application is rejected -->
+        <div id="comment-section" style="display:none;">
+            <label for="comment">Comment (required if rejecting):</label><br>
+            <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br><br>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit">Submit Decision</button>
+    </form>
+
+    <!-- Link to validation script -->
+    <script src="/assets/js/validation.js"></script>
+</body>
+</html>

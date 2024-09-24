@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+</head>
+<body>
+    <h2>User Profile</h2>
+    <p><strong>Username:</strong> <?php echo htmlspecialchars($user['username']); ?></p>
+
+    <h3>Update Profile</h3>
+    <form action="/app/controllers/UserController.php" method="POST">
+        <input type="text" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
+        <button type="submit" name="update_profile">Update</button>
+    </form>
+
+    <h3>Change Password</h3>
+    <form action="/app/controllers/UserController.php" method="POST">
+        <input type="password" name="new_password" placeholder="New Password" required>
+        <button type="submit" name="change_password">Change Password</button>
+    </form>
+
+    <?php if (isset($_SESSION['message'])): ?>
+        <p class="success"><?php echo $_SESSION['message']; unset($_SESSION['message']); ?></p>
+    <?php endif; ?>
+</body>
+</html>
